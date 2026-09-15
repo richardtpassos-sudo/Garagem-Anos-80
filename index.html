@@ -1,627 +1,268 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garagem Anos 80 - Clássicos das Décadas de 70 e 80 Rebaixados</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-primary: #0a0a0d;
-            --bg-secondary: #121217;
-            --card-bg: #1a1a22;
-            --accent-color: #ff3344;
-            --accent-hover: #d61f32;
-            --accent-glow: rgba(255, 51, 68, 0.35);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --border-radius: 16px;
-            --shadow: 0 10px 30px rgba(0,0,0,0.5);
-            --font-family: 'Montserrat', sans-serif;
-            --base-font-size: 16px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garagem Clássicos Rebaixados | Anos 70 e 80</title>
+  
+  <!-- CSS Embutido -->
+  <style>
+    /* Estilos Gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      background-color: #0f0f11;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
 
-        html {
-            font-size: var(--base-font-size);
-            scroll-behavior: smooth;
-        }
+    /* Cabeçalho */
+    header {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid #ff4500;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-family);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    header h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
 
-        /* Barra de Acessibilidade */
-        .accessibility-bar {
-            background-color: #000;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #222;
-        }
+    header p {
+      font-size: 1.2rem;
+      color: #ffd700;
+      margin-top: 10px;
+    }
 
-        .acc-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--text-secondary);
-            color: var(--text-primary);
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
+    /* Container Principal */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
 
-        .acc-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
+    /* Seção de Destaque */
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        /* Header */
-        header {
-            background-color: rgba(18, 18, 23, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 18px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #272732;
-        }
+    .intro h2 {
+      font-size: 2rem;
+      color: #ff4500;
+      margin-bottom: 1rem;
+    }
 
-        .logo {
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 900;
-            color: var(--text-primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+    /* Grid de Carros */
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
 
-        .logo span {
-            color: var(--accent-color);
-        }
+    /* Cartão do Carro */
+    .car-card {
+      background-color: #1a1a1d;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* Botões Estilizados e Diferenciados */
-        .btn-custom {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--accent-color) 0%, #b8001f 100%);
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 25px var(--accent-glow);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            cursor: pointer;
-        }
+    .car-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(255, 69, 0, 0.3);
+      border-color: #ff4500;
+    }
 
-        .btn-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s ease;
-        }
+    .car-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 2px solid #333;
+    }
 
-        .btn-custom:hover::before {
-            left: 100%;
-        }
+    .car-info {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .btn-custom:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 14px 35px rgba(255, 51, 68, 0.5);
-            background: linear-gradient(135deg, #ff4d5e 0%, var(--accent-color) 100%);
-        }
+    .car-info h3 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: #fff;
-            box-shadow: none;
-        }
+    .car-info p {
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
 
-        .btn-outline:hover {
-            background: var(--accent-color);
-            color: #fff;
-        }
+    /* Botões Diferenciados */
+    .custom-btn {
+      position: relative;
+      padding: 12px 24px;
+      border: none;
+      background: linear-gradient(45deg, #ff4500, #ff8c00);
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-radius: 25px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+      align-self: start;
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: clamp(50px, 6vw, 100px) 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: clamp(30px, 4vw, 60px);
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .custom-btn:hover {
+      background: linear-gradient(45deg, #ff8c00, #ff4500);
+      box-shadow: 0 6px 20px rgba(255, 69, 0, 0.7);
+      transform: scale(1.05);
+    }
 
-        .hero-content h1 {
-            font-size: clamp(2.2rem, 4vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
+    .custom-btn:active {
+      transform: scale(0.98);
+    }
 
-        .hero-content h1 span {
-            color: var(--accent-color);
-            text-shadow: 0 0 20px var(--accent-glow);
-        }
+    .btn-curtir {
+      background: linear-gradient(45deg, #11998e, #38ef7d);
+      box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+      margin-top: 10px;
+    }
 
-        .hero-content p {
-            font-size: clamp(1rem, 1.4vw, 1.2rem);
-            color: var(--text-secondary);
-            margin-bottom: 35px;
-        }
+    .btn-curtir:hover {
+      background: linear-gradient(45deg, #38ef7d, #11998e);
+      box-shadow: 0 6px 20px rgba(56, 239, 125, 0.6);
+    }
 
-        .hero-image-frame {
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid #3f3f4e;
-        }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-        .hero-image-frame img {
-            width: 100%;
-            height: 100%;
-            max-height: 480px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Benefícios */
-        .features {
-            background-color: var(--bg-secondary);
-            padding: clamp(60px, 8vw, 100px) 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            margin-bottom: clamp(30px, 5vw, 60px);
-            font-weight: 800;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: clamp(20px, 3vw, 40px);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 35px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            border: 1px solid #272735;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-color);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Carrossel Dinâmico */
-        .carousel-section {
-            padding: clamp(60px, 8vw, 100px) 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .carousel-container {
-            position: relative;
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid #272735;
-        }
-
-        .carousel-slide {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 35px;
-            align-items: center;
-        }
-
-        .carousel-slide.active {
-            display: grid;
-        }
-
-        .carousel-img {
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-        }
-
-        .carousel-img img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .carousel-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            font-weight: 800;
-        }
-
-        .carousel-info p {
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-            font-size: 1.05rem;
-        }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .nav-btn {
-            background: var(--card-bg);
-            border: 1px solid #3f3f4e;
-            color: #fff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .nav-btn:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* FAQ Acordeão */
-        .faq-section {
-            background-color: var(--bg-secondary);
-            padding: clamp(60px, 8vw, 100px) 5%;
-        }
-
-        .accordion {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .accordion-item {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            border: 1px solid #272735;
-            overflow: hidden;
-        }
-
-        .accordion-header {
-            padding: 22px 28px;
-            width: 100%;
-            text-align: left;
-            background: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-family: var(--font-family);
-        }
-
-        .accordion-content {
-            padding: 0 28px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: var(--text-secondary);
-        }
-
-        .accordion-item.active .accordion-content {
-            padding: 0 28px 22px 28px;
-            max-height: 200px;
-        }
-
-        .accordion-item.active .accordion-header i {
-            transform: rotate(180deg);
-            color: var(--accent-color);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: clamp(60px, 8vw, 100px) 5%;
-            text-align: center;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, #1f080c 100%);
-        }
-
-        /* Blindagem do Modo de Contraste */
-        body.high-contrast, body.high-contrast *:not(i):not(.icon) {
-            background-color: #000 !important;
-            color: #fff !important;
-            border: 1px solid #ff0 !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            text-shadow: none !important;
-        }body.high-contrast a, body.high-contrast button {
-            color: #ff0 !important;
-            text-decoration: underline !important;
-            font-weight: bold !important;
-        }
-
-        footer {
-            padding: 30px 5%;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-        }
-    </style>
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #08080a;
+      color: #777;
+      margin-top: 4rem;
+      border-top: 1px solid #222;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Acessibilidade -->
-    <div class="accessibility-bar">
-        <span>Acessibilidade:</span>
-        <button class="acc-btn" id="btn-font-decrease" aria-label="Diminuir fonte">A-</button>
-        <button class="acc-btn" id="btn-font-increase" aria-label="Aumentar fonte">A+</button>
-        <button class="acc-btn" id="btn-contrast" aria-label="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste</button>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Lendas Rebaixadas</h1>
+    <p>Os maiores clássicos de 40 anos atrás com estilo e postura nas ruas</p>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <div class="container">
+    
+    <section class="intro">
+      <h2>Cultura Custom & Antigomobilismo</h2>
+      <p>Confira a seleção de ícones nacionais com preparação de suspensão, preservando a essência e o ronco dos motores clássicos.</p>
+    </section>
+
+    <!-- Grid de Veículos -->
+    <div class="car-grid">
+
+      <!-- Card 1: Opala Comodoro -->
+      <article class="car-card">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/17392820737020322693_0" alt="Chevrolet Opala Comodoro Rebaixado">
+        <div class="car-info">
+          <div>
+            <h3>Chevrolet Opala Comodoro</h3>
+            <p>O lendário Muscle Car brasileiro. Equipado com motor 6 cilindros em linha, teto Las Vegas e a clássica suspensão fixa preparada para alinhar perfeitamente com os paralamas.</p>
+          </div>
+          <div class="button-group">
+            <button class="custom-btn" onclick="verDetalhes('Chevrolet Opala Comodoro', 'Motor 4.1 250-S, suspensão retrabalhada e rodas raras do período.')">Ficha Técnica</button>
+            <button class="custom-btn btn-curtir" onclick="curtirCarro(this)">❤️ Curtir (<span class="count">0</span>)</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: VW Passat / Gol Quadrado -->
+      <article class="car-card">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/815997354328926051_0" alt="Volkswagen Passat Rebaixado">
+        <div class="car-info">
+          <div>
+            <h3>Volkswagen Passat / Gol Quadrado</h3>
+            <p>Representantes da renomada linha AP. Apresentam um design marcante com suspensão a ar, rodas Snowflakes ou Orbitais e acerto impecável na altura.</p>
+          </div>
+          <div class="button-group">
+            <button class="custom-btn" onclick="verDetalhes('Volkswagen Passat / Gol', 'Motor AP 1.8 Turbo, interior em tecido xadrez clássico e suspensão ajustável.')">Ficha Técnica</button>
+            <button class="custom-btn btn-curtir" onclick="curtirCarro(this)">❤️ Curtir (<span class="count">0</span>)</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Ford Maverick V8 -->
+      <article class="car-card">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/15776169161285010564_0" alt="Ford Maverick V8 Rebaixado">
+        <div class="car-info">
+          <div>
+            <h3>Ford Maverick V8 Vintage</h3>
+            <p>Um verdadeiro monstro com motor 302 V8. A postura rebaixada realça as linhas cupê agressivas e o ronco grave dos escapamentos esportivos estilo dimensionado.</p>
+          </div>
+          <div class="button-group">
+            <button class="custom-btn" onclick="verDetalhes('Ford Maverick V8', 'Motor 302 V8 Quadrijet, suspensão rosca e pneus Goodyear Eagle GTII.')">Ficha Técnica</button>
+            <button class="custom-btn btn-curtir" onclick="curtirCarro(this)">❤️ Curtir (<span class="count">0</span>)</button>
+          </div>
+        </div>
+      </article>
+
     </div>
+  </div>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">Garagem<span>Anos80</span></div>
-        <a href="#contato" class="btn-custom" style="padding: 10px 22px; font-size: 0.85rem;">Agendar Projeto</a>
-    </header>
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; Garagem dos Clássicos Rebaixados - Projeto Exclusivo HTML/CSS/JS</p>
+  </footer>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>A ESSÊNCIA DOS <span>CLÁSSICOS COM 40 ANOS</span> DE HISTÓRIA.</h1>
-            <p>Especialistas na preparação, restauração e rebaixamento de veículos lendários das décadas de 70 e 80. Unimos a nostalgia dos ícones de 40 anos com engenharia moderna de suspensão.</p>
-            <a href="#contato" class="btn-custom"><i class="fa-solid fa-wrench"></i> Transformar Meu Clássico</a>
-        </div>
-        <div class="hero-image-frame">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/5616857876201077302_0" alt="Carro Antigo de 40 anos Clássico Rebaixado">
-        </div>
-    </section>
+  <!-- JavaScript Embutido -->
+  <script>
+    // Função para exibir mensagem com detalhes do veículo
+    function verDetalhes(modelo, especificacoes) {
+      alert("🏎️ ESPECIFICAÇÕES - " + modelo.toUpperCase() + "\n\n" + especificacoes);
+    }
 
-    <!-- Benefícios -->
-    <section class="features">
-        <h2 class="section-title">EXCELÊNCIA EM ÍCONES DAS DÉCADAS DE 70 E 80</h2>
-        <div class="grid-3">
-            <div class="card">
-                <i class="fa-solid fa-car-rear"></i>
-                <h3>Suspensão Específica para Clássicos</h3>
-                <p>Desenvolvimento exclusivo de sistemas de rosca, a ar e fixas revalvuladas com carga sob medida para as plataformas consagradas de 40 anos atrás.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Preservação Estrutural</h3>
-                <p>Técnicas avançadas de retrabalho de caixa de roda e longarinas desenvolvidas para manter a rigidez e valor comercial do seu modelo antigo.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-file-contract"></i>
-                <h3>Documentação & Legalização</h3>
-                <p>Projetos executados rigorosamente dentro das normas vigentes, acompanhados de laudos técnicos para emissão do documento de alteração.</p>
-            </div>
-        </div>
-    </section>
+    // Função para incrementar o contador de curtidas individualmente
+    function curtirCarro(buttonElement) {
+      const countSpan = buttonElement.querySelector('.count');
+      let currentLikes = parseInt(countSpan.textContent);
+      currentLikes++;
+      countSpan.textContent = currentLikes;
+      
+      // Efeito visual temporário
+      buttonElement.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        buttonElement.style.transform = 'scale(1)';
+      }, 150);
+    }
+  </script>
 
-    <!-- Carrossel de Projetos de 40 Anos -->
-    <section class="carousel-section">
-        <h2 class="section-title">NOSSOS PROJETOS VINTAGE</h2>
-        <div class="carousel-container" id="carousel-wrapper">
-            <!-- Injetado via JS -->
-        </div>
-        <div class="carousel-nav">
-            <button class="nav-btn" id="prev-btn" aria-label="Projeto Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="nav-btn" id="next-btn" aria-label="Próximo Projeto"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-    </section>
-
-    <!-- FAQ Acordeão -->
-    <section class="faq-section">
-        <h2 class="section-title">PERGUNTAS FREQUENTES</h2>
-        <div class="accordion" id="accordion-wrapper">
-            <!-- Injetado via JS -->
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="cta-section" id="contato">
-        <h2 class="section-title">PRONTO PARA DEIXAR SEU CLÁSSICO NO CHÃO?</h2>
-        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto;">Garanta o atendimento VIP na nossa oficina. Vagas limitadas por mês para assegurar acabamento artesanal em cada detalhe.</p>
-        <a href="https://wa.me/" target="_blank" class="btn-custom" style="font-size: 1.1rem; padding: 18px 40px;"><i class="fa-brands fa-whatsapp"></i> Falar com um Engenheiro Especialista</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Garagem Anos 80 - Customização e Preparação de Clássicos Rebaixados.</p>
-    </footer>
-
-    <script>
-        // Array de Projetos com Carros da Década de 70 e 80 (Aprox. 40 anos de história)
-        const projectsData = [
-            {
-                title: "Chevrolet Opala / Chevy Muscle (Década de 80)",
-                description: "Suspensão fixa sob medida com molas helicoidais revalvuladas, buchas de poliuretano e alinhamento de geometria especial para postura stance agressiva.",
-                image: "http://googleusercontent.com/image_collection/image_retrieval/5616857876201077302_1"
-            },
-            {
-                title: "Volkswagen Passat / Gol Quadrado Classic (Anos 80)",
-                description: "Instalação de suspensão a ar com gerenciamento Bluetooth, retrabalho de longarina, caixa de roda trabalhada e conjunto de rodas de época tala larga.",
-                image: "http://googleusercontent.com/image_collection/image_retrieval/5616857876201077302_2"
-            },
-            {
-                title: "Ford Corcel / Maverick Vintage (Anos 70/80)",
-                description: "Restauração técnica de chassi com manga de eixo deslocada, sistema de rosca regulável e preservação completa do conjunto mecânico original.",
-                image: "http://googleusercontent.com/image_collection/image_retrieval/5616857876201077302_3"
-            }
-        ];
-
-        // Array de FAQs
-        const faqData = [
-            {
-                question: "O rebaixamento prejudica a estrutura de um carro de 40 anos?",
-                answer: "Não quando realizado por profissionais. Efetuamos reforços em pontos críticos do chassi e alinhamento estrutural para que o veículo continue seguro e resistente."
-            },
-            {
-                question: "Qual o sistema de suspensão ideal para um veículo vintage?",
-                answer: "A suspensão a ar oferece praticidade e conforto para rodar em diferentes terrenos. A fixa sob medida atende os entusiastas puristas que priorizam o apelo estético constante."
-            },
-            {
-                question: "Vocês auxiliam no processo de legalização da suspensão?",
-                answer: "Sim. Nossos projetos seguem as especificações técnicas da legislação vigente e fornecemos toda a documentação necessária para os laudos do Inmetro e Detran."
-            }
-        ];
-
-        // Lógica do Carrossel Dinâmico
-        let currentSlide = 0;
-        const carouselWrapper = document.getElementById('carousel-wrapper');
-
-        function renderCarousel() {
-            carouselWrapper.innerHTML = projectsData.map((project, index) => `
-                <div class="carousel-slide ${index === 0 ? 'active' : ''}">
-                    <div class="carousel-img">
-                        <img src="${project.image}" alt="${project.title}">
-                    </div>
-                    <div class="carousel-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <a href="#contato" class="btn-custom btn-outline" style="padding: 10px 20px; font-size: 0.85rem;">
-                            <i class="fa-solid fa-circle-info"></i> Consultar Este Projeto
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        document.getElementById('next-btn').addEventListener('click', () => showSlide(currentSlide + 1));
-        document.getElementById('prev-btn').addEventListener('click', () => showSlide(currentSlide - 1));
-
-        // Lógica do Acordeão FAQ
-        const accordionWrapper = document.getElementById('accordion-wrapper');
-
-        function renderAccordion() {
-            accordionWrapper.innerHTML = faqData.map((item, index) => `
-                <div class="accordion-item">
-                    <button class="accordion-header" data-index="${index}">
-                        ${item.question}
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>${item.answer}</p>
-                    </div>
-                </div>
-            `).join('');
-
-            document.querySelectorAll('.accordion-header').forEach(header => {
-                header.addEventListener('click', function() {
-                    const item = this.parentElement;
-                    const isActive = item.classList.contains('active');
-                    
-                    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-                    
-                    if (!isActive) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Lógica de Acessibilidade com Limite Seguro
-        let baseFontSize = 16;
-
-        document.getElementById('btn-font-increase').addEventListener('click', () => {
-            if (baseFontSize < 24) {
-                baseFontSize += 2;
-                document.documentElement.style.fontSize = `${baseFontSize}px`;
-            }
-        });
-
-        document.getElementById('btn-font-decrease').addEventListener('click', () => {
-            if (baseFontSize >= 12) {
-                baseFontSize -= 2;
-                document.documentElement.style.fontSize = `${baseFontSize}px`;
-            }
-        });
-
-        document.getElementById('btn-contrast').addEventListener('click', () => {
-            document.body.classList.toggle('high-contrast');
-        });
-
-        // Inicialização dos Componentes
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCarousel();
-            renderAccordion();
-        });
-    </script>
 </body>
 </html>
